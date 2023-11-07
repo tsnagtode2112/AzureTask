@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>My Page</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <style>
+        /* Custom CSS for adding a border and shadow to the form */
+        .custom-form {
+            border: 1px solid #d1d1d1;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            border-radius: 10px;
+        }
+    </style>
+    <script>
+        function validateForm() {
+            var firstName = document.getElementById("first_name").value;
+            var lastName = document.getElementById("last_name").value;
+            var regex = /^[A-Za-z]+$/;  // Regular expression to match only alphabets
+    
+            if (!regex.test(firstName)) {
+                alert("First Name can only contain alphabets.");
+                return false;
+            }
+    
+            if (!regex.test(lastName)) {
+                alert("Last Name can only contain alphabets.");
+                return false;
+            }
+    
+            return true;
+        }
+    </script>
+</head>
+<body>
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-md-6 custom-form">
+                <form action="/firstApp/index" method="post" onsubmit="return validateForm()">
+                    {% csrf_token %}
+                    <div class="mb-3">
+                        <label for="first_name" class="form-label"><b>First Name</b></label>
+                        <input type="text" class="form-control" placeholder="First Name" name="first_name" id="first_name" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="last_name" class="form-label"><b>Last Name</b></label>
+                        <input type="text" class="form-control" placeholder="Last Name" name="last_name" id="last_name" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="email" class="form-label"><b>Email</b></label>
+                        <input type="text" class="form-control" placeholder="Enter Email" name="email" id="email" required>
+                    </div>
+        
+                    <div class="mb-3">
+                        <label for="class" class="form-label"><b>Class</b></label>
+                        <input type="text" class="form-control" placeholder="Class" name="class" id="class" required>
+                    </div>
+        
+                    <div class="mb-3">
+                        <label for="course" class="form-label"><b>Course</b></label>
+                        <input type="text" class="form-control" placeholder="Course" name="course" id="course" required>
+                    </div>
+
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
+
+
+
+
+ {% comment %} <p>How is the general state of the class?</p>
+                    <div class="btn-group" data-toggle="buttons">
+                        <label class="btn btn-secondary active">
+                            <input type="radio" name="options" id="option1" autocomplete="off" checked> 1
+                        </label>
+                        <label class="btn btn-secondary">
+                            <input type="radio" name="options" id="option2" autocomplete="off"> 2
+                        </label>
+                        <label class="btn btn-secondary">
+                            <input type="radio" name="options" id="option3" autocomplete="off"> 3
+                        </label>
+                    </div>
+        
+                    <p>Please indicate the batch starting time</p>
+                    <div class="mb-3">
+                        <label for="time" class="form-label">Select Time:</label>
+                        <input type="time" class="form-control" id="time" name="time">
+                    </div>
+        
+                    <p>Please mention about the current course topic briefly</p>
+                    <div class="mb-3">
+                        <label for="subject" class="form-label">Subject</label>
+                        <textarea class="form-control" id="subject" name="subject" placeholder="Write something.."></textarea>
+                    </div> {% endcomment %}
